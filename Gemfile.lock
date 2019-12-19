@@ -2,10 +2,18 @@ PATH
   remote: .
   specs:
     hatenikki (0.1.0)
+      hatenablog
 
 GEM
   remote: https://rubygems.org/
   specs:
+    hatenablog (0.5.2)
+      nokogiri
+      oauth
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.7)
+      mini_portile2 (~> 2.4.0)
+    oauth (0.5.4)
     rake (12.3.3)
 
 PLATFORMS

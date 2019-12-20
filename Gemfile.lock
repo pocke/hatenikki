@@ -7,7 +7,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    hatenablog (0.5.2)
+    hatenablog (0.6.0)
       nokogiri
       oauth
     mini_portile2 (2.4.0)

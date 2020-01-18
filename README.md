@@ -1,8 +1,6 @@
 # Hatenikki
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hatenikki`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Write diary every day with Hatena blog.
 
 ## Installation
 
@@ -22,7 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+# Print the today's article to STDOUT
+$ hatenikki load
+
+# Save the today's article from STDIN
+$ hatenikki save
+
+# Publish draft articles except today's one
+$ hatenikki publish
+```
+
+* For more information (in Japanese): https://pocke.hatenablog.com/entry/2020/01/18/191652
+* Related project: https://github.com/pocke/hatenikki.vim
 
 ## Development
 

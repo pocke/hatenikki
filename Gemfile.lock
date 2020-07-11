@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hatenikki (0.1.1)
+    hatenikki (0.2.0)
       hatenablog
 
 GEM
@@ -11,7 +11,7 @@ GEM
       nokogiri
       oauth
     mini_portile2 (2.4.0)
-    nokogiri (1.10.7)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     rake (12.3.3)

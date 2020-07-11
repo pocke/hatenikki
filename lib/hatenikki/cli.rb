@@ -19,6 +19,9 @@ module Hatenikki
     # Load today's diary.
     private def load
       if entry = todays_entry
+        if match = entry.title.match(/ - (?<subtitle>.+)/)
+          puts "title: #{match[:subtitle]}"
+        end
         puts entry.content
       end
     end
@@ -28,21 +31,31 @@ module Hatenikki
       content = STDIN.read
       categories = []
 
+      title, content = title_and_content(content)
+
       if entry = todays_entry
         client.update_entry(
           entry.id,
-          today,
+          title,
           content,
           categories,
           entry.draft,
         )
       else
         client.post_entry(
-          today,
+          title,
           content,
           categories,
           'yes', # draft
         )
+      end
+    end
+
+    private def title_and_content(content)
+      if match = content.match(/\Atitle: (?<subtitle>.+)/)
+        ["#{today} - #{match[:subtitle]}", content.sub(/.+\n/, '')]
+      else
+        [today, content]
       end
     end
 
@@ -66,8 +79,12 @@ module Hatenikki
       @argv[0]
     end
 
+    private def todays_entry?(entry)
+      entry.title.match?(/\A#{Regexp.escape(today)}\b/)
+    end
+
     private def todays_entry
-      client.entries.find{|entry| entry.title == today }
+      client.entries.find{|entry| todays_entry?(entry) }
     end
 
     private def today
